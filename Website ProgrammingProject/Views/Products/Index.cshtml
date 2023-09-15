@@ -1,0 +1,195 @@
+﻿@model List<Website_ProgrammingProject.Models.Product>
+
+@{
+    ViewBag.Title = "DataTable";
+    Layout = "~/Views/Shared/_LayoutPage3.cshtml";
+}
+
+<link href="~/font-awesome.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/AssetsAdmin/plugins/fontawesome-free/css/all.min.css">
+@section index{
+    <div class="content-wrapper" style="min-height: 1203.6px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>DataTables</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">DataTables</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <button class="btn btn-primary"> <a href="/products/create"
+                                        class="text-white">Create</a></button>
+
+                            </h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6"></div>
+                                    <div class="col-sm-12 col-md-6"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table id="example2" class="table table-bordered table-hover dataTable" role="grid"
+                                            aria-describedby="example2_info">
+                                            <thead>
+                                                <tr role="row">
+                                                    <th class="sorting_asc" tabindex="0" aria-controls="example2"
+                                                        rowspan="1" colspan="1"
+                                                        aria-label="Rendering engine: activate to sort column descending"
+                                                        aria-sort="ascending">ID</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                        colspan="1" aria-label="Browser: activate to sort column ascending">
+                                                        NAME </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                        colspan="1"
+                                                        aria-label="Platform(s): activate to sort column ascending">PRICE
+                                                    </th>
+                                                    <th class="sorting" style="width:15%" tabindex="0"
+                                                        aria-controls="example2" rowspan="1" colspan="1"
+                                                        aria-label="Engine version: activate to sort column ascending">IMAGE
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                        colspan="1"
+                                                        aria-label="CSS grade: activate to sort column ascending">DISPLAY
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                        colspan="1"
+                                                        aria-label="CSS grade: activate to sort column ascending">CHIP</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                        colspan="1"
+                                                        aria-label="CSS grade: activate to sort column ascending">RAM</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                        colspan="1"
+                                                        aria-label="CSS grade: activate to sort column ascending">BRAND</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                        colspan="1"
+                                                        aria-label="CSS grade: activate to sort column ascending">CATEGORY
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                        colspan="1"
+                                                        aria-label="CSS grade: activate to sort column ascending">Details
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                        colspan="1"
+                                                        aria-label="CSS grade: activate to sort column ascending">Edit</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                        colspan="1"
+                                                        aria-label="CSS grade: activate to sort column ascending">Delete
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr role="row" class="odd">
+                                                        <td class="sorting_1">@item.ProductId</td>
+                                                        <td>@item.ProductName </td>
+                                                        <td>@item.Price</td>
+                                                        <td> <img src=" data:image;base64,@item.Image" width="100px"
+                                                                alt="@item.ProductName" /></td>
+                                                        <td>@item.Display</td>
+                                                        <td>@item.Chip</td>
+                                                        <td>@item.Ram</td>
+                                                        <td>@item.BrandId</td>
+                                                        <td>@item.CategoryId</td>
+                                                        <td>
+                                                            <a href="/products/details?id=@item.ProductId">Details</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="/products/edit?id=@item.ProductId">Edit</a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="/products/delete?id=@item.ProductId">Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                                @{
+                                                    int PrevPageNo = ViewBag.PageNo - 1;
+                                                    if (PrevPageNo <= 0)
+                                                    {
+                                                        PrevPageNo = 1;
+                                                    }
+                                                    int nextPageNo = ViewBag.PageNo + 1;
+                                                    if (nextPageNo > ViewBag.NoOfPage)
+                                                    {
+                                                        nextPageNo = ViewBag.NoOfPage;
+                                                    }
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <ul class="pagination justify-content-center">
+                                            <li class="paginate_button page-item" id="example2_previous">
+                                                <a href="~/products/index?PageNo=@PrevPageNo" aria-controls="example2"
+                                                    data-dt-idx="0" tabindex="7" class="page-link">Prev</a>
+                                            </li>
+                                            @for (int i = 0; i < ViewBag.NoOfPages; i++)
+                                            {
+                                                if ((i + 1) == ViewBag.PageNo)
+                                                {
+                                                    <li class="page-item active">
+                                                        <a href="~/products/index?PageNo=@(i+1)" class="page-link">@(i + 1)</a>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li class="page-item ">
+                                                        <a href="~/products/index?PageNo=@(i+1)" class="page-link">@(i + 1)</a>
+                                                    </li>
+                                                }
+                                            }
+                                            <li class="paginate_button page-item next" id="example2_next">
+                                                <a href="~/products/index?PageNo=@nextPageNo" aria-controls="example2"
+                                                    data-dt-idx="7" tabindex="0" class="page-link">Next</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
+        <!-- /.content -->
+    </div>
+}
+@section SearchDataTable{
+    <form class="form-inline ml-3 " action="/admin/datatable" method="get">
+        <div class="input-group input-group-sm">
+            <input class="form-control form-control-navbar" type="text" value="@ViewBag.Search" placeholder="Search"
+                name="Search" id="Search" aria-label="Search">
+            <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+}

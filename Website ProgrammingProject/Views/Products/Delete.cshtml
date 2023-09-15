@@ -1,0 +1,95 @@
+﻿@model Website_ProgrammingProject.Models.Product
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPage3.cshtml";
+}
+
+@section Edit{
+    <div class="content-wrapper" style="min-height: 1203.6px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>General Form</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="/admin/datatable">Home</a></li>
+                            <li class="breadcrumb-item active">Edit</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- left column -->
+                    <div class="col-12">
+                        <!-- general form elements -->
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Edit</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form role="form" action="/Products/delete/@Model.ProductId" method="post">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Tên</label>
+                                        <input type="hidden" name="ProductID" value="@Model.ProductId" />
+                                        <input type="text" name="ProductName" class="form-control" id="ProductName" value="@Model.ProductName" placeholder="Tên sản phẩm">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputPrice">Giá sản phẩm</label>
+                                        <input type="number" name="Price" class="form-control" id="Price" value="@Model.Price" placeholder="Giá sản phẩm">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputPriceDisplay">Màn hình</label>
+                                        <input type="text" name="Display" class="form-control" id="Display" value="@Model.Display" placeholder="Example: 6.1 inch">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputChip">Chip</label>
+                                        <input type="text" name="Chip" class="form-control" id="Chip" value="@Model.Chip" placeholder="Example: Apple A15 Bionic">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputRam">Ram</label>
+                                        <input type="text" name="ram" class="form-control" id="Ram" value="@Model.Ram" placeholder="Example: 64Gb, 128GB,">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputBrand">Brands</label>
+                                        <input type="text" name="BrandId" class="form-control" id="BrandId" value="@Model.BrandId" placeholder="Example: Apple">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputCategory">Category</label>
+                                        <input type="text" name="CategoryId" class="form-control" id="CategoryId" value="@Model.CategoryId" placeholder="Example: Điện thoại">
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                    <a href="/admin/datatable" class="btn btn-danger">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+}
+

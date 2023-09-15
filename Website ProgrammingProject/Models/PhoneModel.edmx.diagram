@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="32a54db79a6b421288b5f2f5855154a2" Name="Diagram1">
+        <EntityTypeShape EntityType="PhoneDBModel.Brand" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhoneDBModel.Category" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhoneDBModel.Order" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhoneDBModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhoneDBModel.User" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="PhoneDBModel.FK__Products__BrandI__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="PhoneDBModel.FK__Products__Catego__15502E78" ManuallyRouted="false" />
+        <AssociationConnector Association="PhoneDBModel.FK__Orders__ProductI__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="PhoneDBModel.FK__Orders__UserId__1A14E395" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
